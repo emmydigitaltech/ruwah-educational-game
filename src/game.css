@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600;800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: 'Playpen Sans', cursive;
+}
+
+.hidden{
+    display: flex !important;
+}
+
+body{
+    width: 100dvw;
+    height: 100dvh;
+}
+#splash{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 200;
+}
+#splash.display-none{
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -10;
+    transition: all 500ms
+}
+
+#splash video{
+    width: 100%;
+    height: 100%;
+    background-color: #353b52;
+}
+
+#splash video.display-none{
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    opacity: 0;
+    background-color: #353b52;
+}
+
+@keyframes fadeIn{
+    to{
+        opacity: 1;
+    }
+}
+
+.fade-in{
+    opacity: 0;
+    animation: fadeIn .1s ease-in forwards
+}
+
+/* Instructions Section */
+
+#instructions-page{
+    width: 100%;
+    height: 100dvh;
+}
+
+#instructions-page .container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: url(../assets/scenery-backgrounds.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+#instructions-page .container::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.15);
+}
+
+#instructions-page .container h2{
+    font-size: 2rem;
+    margin: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+#instructions-page .container > button{
+    font-size: 1.2rem;
+    width: 200px;
+    z-index: 2;
+    background: url(../assets/btn-bg.jpg);
+    color: #000;
+    padding: 10px;
+    font-weight: 600;
+    border: #000 solid 3px;
+    margin: 1rem 0 0 0;
+    box-shadow: 0 0 1rem .6rem rgba(0,0,0,.4);
+    outline: 5px #fff solid;
+    border-radius: 5px;
+    transition: .3s all ease;
+    cursor: pointer;
+}
+
+#instructions-page .container > button:hover{
+    opacity: .85;
+}
+
+#instructions-page .container > button:active{
+    transform: scale(.9);
+    box-shadow: none;
+}
+
+#instructions-page .container .instructions, #instructions-page .container .select-level{
+    position: absolute;
+    width: calc(200px + 1.5rem);
+    padding: 1.5rem;
+    box-shadow: 0 0 1rem .1rem rgba(0,0,0,.4);
+}
+
+#instructions-page .container .instructions{
+    top: 58%;
+    left: 7.5%;
+    background-color: #eaeaea;
+    border-radius: 30px;
+    display: none;
+    flex-direction: column;
+}
+
+#instructions-page .container .instructions h3{
+    margin: .5rem 0 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+}
+
+#instructions-page .container .instructions p{
+    font-size: .8rem;
+    letter-spacing: 1px;
+    line-height: 120%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+}
+
+#instructions-page .container .instructions p span{
+    background-color: orange;
+    color: #fff;
+    padding: 0 4px;
+}
+
+#instructions-page .container .select-level{
+    width: calc(200px + 2.5rem);
+    border: #1380af 5px solid;
+    border-radius: 5px;
+    top: 27.5%;
+    right: 5%;
+    background: linear-gradient(to bottom, rgb(152, 224, 236), rgb(205, 242, 255));
+    display: none;
+    flex-direction: column;
+}
+
+#instructions-page .container .select-level .lvl-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 9px;
+}
+
+#instructions-page .container .select-level h3{
+    margin-bottom: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#instructions-page .container .select-level button{
+    width: 36px;
+    background-color: rgb(243, 243, 101);
+    border-radius: 4px;
+    border: orange 3px solid;
+    outline: 3px #fff solid;
+    height: 36px;
+    padding: 0 !important;
+    text-align: center;
+    font-weight: 900;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: not-allowed;
+    transition: .2s all ease;
+}
+
+#instructions-page .container .select-level a{
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    text-decoration: none;
+    color: #999;
+}
+
+#instructions-page .container .select-level button:hover{
+    border: orange 3px solid;
+    outline: 4px #fff solid;
+}
+
+#instructions-page .container .select-level .selected-btn:active{
+    transform: scale(.9);
+}
+
+#instructions-page .container .select-level .selected-btn{
+    cursor: pointer;
+    color: #444;
+}
+
+#instructions-page .container .select-level .selected-btn a{
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px;
+    color: #444;
+}
+
+
+/* Responsivity */
+
+@media (width > 1012px) {
+    #instructions-page .container .instructions{
+        top: 55%;
+        left: 20.5%;
+    }
+
+    #instructions-page .container .select-level{
+        top: 27.5%;
+        right: 20%;
+    }
+}
+
+
+@media (width > 768px) {
+    .small-devices{
+        display: none;
+    }
+}
+@media (width <= 768px) {
+    .game{
+        display: none;
+    }
+    .small-devices{
+        display: block;
+    }
+}
